@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<configuration>
+    <!-- 默认HDFS的ip以及端口 -->
+    <property>
+         <name>fs.defaultFS</name>
+         <value>hdfs://localhost:9000</value>
+    </property>
+    <!-- 默认的RPC绑定的IP，这里指定0.0.0.0表示全部ip-->
+    <property>
+	<name>dfs.namenode.rpc-bind-host</name>
+	<value>0.0.0.0</value>
+    </property>
+</configuration>
