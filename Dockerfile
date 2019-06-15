@@ -75,19 +75,19 @@ WORKDIR wikixmlj
 RUN mvn package install
 
 # Set up spark bench
-RUN cd ${SPARK_BENCH_HOME}/bin/build-all.sh
-COPY conf/env.sh ${SPARK_BENCH_HOME}/conf/env.sh
-# Kmeans
-COPY app/kmeans/kmeans.scala ${SPARK_BENCH_HOME}/KMeans/src/main/scala/
-COPY app/kmeans/env.sh ${SPARK_BENCH_HOME}/KMeans/conf/
-# Tera sort
-COPY app/terasort/terasortApp.scala ${SPARK_BENCH_HOME}/Terasort/src/main/scala/
-COPY app/terasort/env.sh ${SPARK_BENCH_HOME}/Terasort/conf/
-$ Page rank
-COPY app/pagerank/pagerankApp.scala ${SPARK_BENCH_HOME}/PageRank/src/main/scala/
-COPY app/pagerank/env.sh ${SPARK_BENCH_HOME}/PageRank/conf/
-# Build
-RUN ${SPARK_BENCH_HOME}/bin/build-all.sh
+#RUN cd ${SPARK_BENCH_HOME}/bin/build-all.sh
+#COPY conf/env.sh ${SPARK_BENCH_HOME}/conf/env.sh
+## Kmeans
+#COPY app/kmeans/kmeans.scala ${SPARK_BENCH_HOME}/KMeans/src/main/scala/
+#COPY app/kmeans/env.sh ${SPARK_BENCH_HOME}/KMeans/conf/
+## Tera sort
+#COPY app/terasort/terasortApp.scala ${SPARK_BENCH_HOME}/Terasort/src/main/scala/
+#COPY app/terasort/env.sh ${SPARK_BENCH_HOME}/Terasort/conf/
+## Page rank
+#COPY app/pagerank/pagerankApp.scala ${SPARK_BENCH_HOME}/PageRank/src/main/scala/
+#COPY app/pagerank/env.sh ${SPARK_BENCH_HOME}/PageRank/conf/
+## Build
+#RUN ${SPARK_BENCH_HOME}/bin/build-all.sh
 
 # Hadoop
 # Set env variables for hadoop
@@ -118,8 +118,7 @@ ENV SPARK_HOME /usr/local/spark-${SPARK_VERSION_DETAIL}
 ENV SPARK_MASTER_IP localhost
 ENV SPARK_CONF_DIR ${SPARK_HOME}/conf/
 
-RUN https://archive.apache.org/dist/spark/spark-${SPARK_VERSION_DETAIL}/spark-${SPARK_VERSION_D\
-ETAIL}-bin-hadoop${HADOOP_FOR_SPARK_VERSION}.tgz
+RUN https://archive.apache.org/dist/spark/spark-${SPARK_VERSION_DETAIL}/spark-${SPARK_VERSION_DETAIL}-bin-hadoop${HADOOP_FOR_SPARK_VERSION}.tgz
 RUN tar xzf spark-*.tgz -C /usr/local
 RUN mv /usr/local/spark-* ${SPARK_HOME}
 RUN rm -f spark-*.tgz
