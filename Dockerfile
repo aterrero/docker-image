@@ -118,7 +118,7 @@ ENV SPARK_HOME /usr/local/spark-${SPARK_VERSION_DETAIL}
 ENV SPARK_MASTER_IP localhost
 ENV SPARK_CONF_DIR ${SPARK_HOME}/conf/
 
-RUN https://archive.apache.org/dist/spark/spark-${SPARK_VERSION_DETAIL}/spark-${SPARK_VERSION_DETAIL}-bin-hadoop${HADOOP_FOR_SPARK_VERSION}.tgz
+RUN wget https://archive.apache.org/dist/spark/spark-${SPARK_VERSION_DETAIL}/spark-${SPARK_VERSION_DETAIL}-bin-hadoop${HADOOP_FOR_SPARK_VERSION}.tgz
 RUN tar xzf spark-*.tgz -C /usr/local
 RUN mv /usr/local/spark-* ${SPARK_HOME}
 RUN rm -f spark-*.tgz
