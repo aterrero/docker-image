@@ -23,7 +23,7 @@ RUN \
 
 RUN \
   apt-get update && \
-  apt-get -y install openssh-server; mkdir -p /var/run/sshd; locale-gen en_US en_US.UTF-8
+  apt-get -y install openssh-server; mkdir -p /var/run/sshd
 
 
 RUN rm -f /etc/ssh/ssh_host_dsa_key
