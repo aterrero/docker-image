@@ -134,3 +134,9 @@ COPY scripts/hadoop-env.sh ${HADOOP_CONF_DIR}/
 # For rebooting hdfs and spark
 COPY scripts/restart_hadoop_spark.sh /usr/bin
 RUN chmod +x /usr/bin/restart_hadoop_spark.sh
+
+# Required for testing
+RUN apt-get install python
+RUN apt-get install numpy
+RUN apt-get install pyspark
+RUN apt-get install nano
