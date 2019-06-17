@@ -136,7 +136,10 @@ COPY scripts/restart_hadoop_spark.sh /usr/bin
 RUN chmod +x /usr/bin/restart_hadoop_spark.sh
 
 # Required for testing
-RUN apt-get install python
-RUN apt-get install numpy
-RUN apt-get install pyspark
-RUN apt-get install nano
+RUN apt-get update
+RUN apt-get -y install python
+RUN apt-get -y install python-pip
+RUN pip install numpy
+RUN pip install pyspark
+RUN apt-get update
+RUN apt-get -y install nano
